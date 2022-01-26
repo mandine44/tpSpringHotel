@@ -13,9 +13,11 @@ public class App {
     public static void main(String[] args) {
 
         IPersistance persistance = new Persistance1();
+
         IMetier metier = new Metier1(persistance);
         Scanner scanner = new Scanner(System.in);
-        Presentation1 presentation1 = new Presentation1(metier, scanner);
+
+        Presentation1 presentation1 = new Presentation1(metier, scanner, "oops");
 
         presentation1.print();
 
