@@ -10,12 +10,22 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://localhost:8881/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8881",
+					"path": [
+						""
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "Liste des plats",
+			"name": "GET /plats/hello1",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -24,20 +34,109 @@
 			"response": []
 		},
 		{
-			"name": "Créer un nouveau plat",
+			"name": "GET /plats/hello2",
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://localhost:8881/plats/hello2?prenom=PRE&nom=NOM",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8881",
+					"path": [
+						"plats",
+						"hello2"
+					],
+					"query": [
+						{
+							"key": "prenom",
+							"value": "PRE"
+						},
+						{
+							"key": "nom",
+							"value": "NOM"
+						}
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "Supprimer un plat",
+			"name": "GET /plats/hello3",
 			"request": {
 				"method": "GET",
-				"header": [],
-				"url": null
+				"header": [
+					{
+						"key": "mon-entete-a-moi",
+						"value": "hiha",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8881/plats/hello3/PRE/NOM/details?age=80",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8881",
+					"path": [
+						"plats",
+						"hello3",
+						"PRE",
+						"NOM",
+						"details"
+					],
+					"query": [
+						{
+							"key": "age",
+							"value": "80"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /plats/hello4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "mon-entete-a-moi",
+						"value": "hiha",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "Un texte dans le corps de la requête"
+				},
+				"url": {
+					"raw": "http://localhost:8881/plats/hello4/PRE/NOM/details?age=80",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8881",
+					"path": [
+						"plats",
+						"hello4",
+						"PRE",
+						"NOM",
+						"details"
+					],
+					"query": [
+						{
+							"key": "age",
+							"value": "80"
+						}
+					]
+				}
 			},
 			"response": []
 		}
