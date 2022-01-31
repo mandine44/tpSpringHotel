@@ -1,0 +1,9 @@
+GET http://localhost:8881/plats/hello4/PRE/NOM/details?age=80
+User-Agent: Agent Rossi
+Accept-Language: Langue inconnue
+Code-Secret: XY
+Content-Type: text/html
+mon-entete-a-moi: test
+
+Un texte dans le corps de la requête
+
