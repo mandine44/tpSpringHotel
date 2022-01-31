@@ -68,7 +68,7 @@ public class InsererRemuneration implements CommandLineRunner{
 		int m= scanner.nextInt();
 		Optional<ProfilRemuneration> p = profilRepository.findById(m);
 		if(p.isPresent()) {
-			remuneration.setProfil(p.get());
+			remuneration.setProfilRemuneration(p.get());
 		}
 		else {
 			System.out.println("cet id n'existe pas");

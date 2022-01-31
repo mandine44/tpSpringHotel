@@ -1,30 +1,23 @@
 package dev.paie.entite;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "grade")
 public class Grade {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String code;
-	
-	@Column(name="nb_heure_base")
 	private BigDecimal nbHeuresBase;
-	
-	@Column(name="taux_base")
 	private BigDecimal tauxBase;
 	
 	@OneToMany (mappedBy="grade")
-	private	Set<RemunerationEmploye> remunerationEmploye;
+	private List<RemunerationEmploye> remunerationEmployes;
 	
 	public String getCode() {
 		return code;
@@ -50,7 +43,12 @@ public class Grade {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	
 
+	public List<RemunerationEmploye> getRemunerationEmployes() {
+		return remunerationEmployes;
+	}
+
+	public void setRemunerationEmployes(List<RemunerationEmploye> remunerationEmployes) {
+		this.remunerationEmployes = remunerationEmployes;
+	}
 }

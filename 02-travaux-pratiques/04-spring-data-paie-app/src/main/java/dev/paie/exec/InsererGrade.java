@@ -24,10 +24,9 @@ public class InsererGrade implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Grade grade = new Grade();
-		grade.setId(4);
-		grade.setCode("D");
-		grade.setNbHeuresBase(BigDecimal.valueOf(152));
-		grade.setTauxBase(BigDecimal.valueOf(41));
+		grade.setCode("D001");
+		grade.setNbHeuresBase(BigDecimal.valueOf(152.56));
+		grade.setTauxBase(BigDecimal.valueOf(41.09));
 				
 		this.gradeRepository.save(grade);
 	}

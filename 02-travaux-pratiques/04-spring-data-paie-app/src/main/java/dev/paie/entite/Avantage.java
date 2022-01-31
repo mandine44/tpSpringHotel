@@ -3,23 +3,20 @@ package dev.paie.entite;
 import java.math.BigDecimal;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "avantage")
 public class Avantage {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String code;
 	private String nom;
 	private BigDecimal montant;
 	
 	@ManyToMany(mappedBy="avantages")
-	private List<ProfilRemuneration> profilsremunerations;
+	private List<ProfilRemuneration> profilsRemunerations;
 
 	public String getCode() {
 		return code;
@@ -51,5 +48,13 @@ public class Avantage {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public List<ProfilRemuneration> getProfilsRemunerations() {
+		return profilsRemunerations;
+	}
+
+	public void setProfilsRemunerations(List<ProfilRemuneration> profilsRemunerations) {
+		this.profilsRemunerations = profilsRemunerations;
 	}
 }

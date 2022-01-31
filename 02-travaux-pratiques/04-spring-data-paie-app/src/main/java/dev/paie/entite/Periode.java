@@ -1,31 +1,22 @@
 package dev.paie.entite;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity
-@Table(name = "periode")
 public class Periode {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	@Column(name="date_debut")
 	private LocalDate dateDebut;
-	
-	@Column(name="date_fin")
 	private LocalDate dateFin;
-	
-	
 	@OneToMany(mappedBy="periode")
-	private	Set< BulletinSalaire > bulletins;
+	private List<BulletinSalaire> bulletins;
 	
 	public LocalDate getDateDebut() {
 		return dateDebut;
@@ -45,9 +36,12 @@ public class Periode {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	
-	
-	
 
+	public List<BulletinSalaire> getBulletins() {
+		return bulletins;
+	}
+
+	public void setBulletins(List<BulletinSalaire> bulletins) {
+		this.bulletins = bulletins;
+	}
 }

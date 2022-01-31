@@ -1,36 +1,29 @@
 package dev.paie.entite;
 
+import java.util.List;
 import java.util.Optional;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "remuneration_employe")
 public class RemunerationEmploye {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String matricule;
 	
 	@ManyToOne
-	@JoinColumn(name="ent_id")
 	private Entreprise entreprise;
 	
 	@ManyToOne
-	@JoinColumn(name="profilRem_id")
 	private ProfilRemuneration profilRemuneration;
 	
 	@ManyToOne
-	@JoinColumn(name="grade_id")
 	private Grade grade;
-	
-	@OneToOne(mappedBy="remunerationEmploye")
-	private BulletinSalaire bulletin;
+
+	@OneToMany(mappedBy="remunerationEmploye")
+	private List<BulletinSalaire> bulletins;
 	
 	
 	public String getMatricule() {
@@ -64,21 +57,13 @@ public class RemunerationEmploye {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public void setEntreprise(Optional<Entreprise> e) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void setGrade(Optional<Grade> g) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void setProfil(ProfilRemuneration profilRemuneration2) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
-	
-	
 
+
+	public List<BulletinSalaire> getBulletins() {
+		return bulletins;
+	}
+
+	public void setBulletins(List<BulletinSalaire> bulletins) {
+		this.bulletins = bulletins;
+	}
 }
