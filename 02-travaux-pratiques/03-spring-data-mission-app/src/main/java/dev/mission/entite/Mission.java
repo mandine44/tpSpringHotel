@@ -3,19 +3,16 @@ package dev.mission.entite;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "mission")
 public class Mission {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String libelle;
+	// colonne "date_debut"
+	// @Column(name = "date_debut")
 	private LocalDate dateDebut;
 	private LocalDate dateFin;
 	private BigDecimal tauxJournalier;
