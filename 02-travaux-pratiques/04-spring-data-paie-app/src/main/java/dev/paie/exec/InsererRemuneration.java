@@ -73,14 +73,10 @@ public class InsererRemuneration implements CommandLineRunner{
 		else {
 			System.out.println("cet id n'existe pas");
 		}
-		
-		
+
 		System.out.println("Quel est votre matricule ?");
 		String mat= scanner.next();
 		remuneration.setMatricule(mat);
-
-		int compteur =(int) remunerationRepository.count();
-		remuneration.setId(Integer.valueOf(compteur+1));
 				
 		this.remunerationRepository.save(remuneration);
 	}
