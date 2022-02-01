@@ -22,7 +22,7 @@ public class PlatCtrl {
 //            path = "hello2"
 //    )
     @GetMapping("hello2")
-    // hello2?nom=?&prenom=?
+    // hello2?nom=X&prenom=Y
     public String bonjour2(@RequestParam String prenom, @RequestParam String nom) {
         return "Hello " + prenom + " " + nom;
     }
