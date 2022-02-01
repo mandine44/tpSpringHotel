@@ -21,8 +21,9 @@ public class PlatService {
         return this.platRepo.findAll(Sort.sort(Plat.class).by(Plat::getNom));
     }
 
-    @Transactional
+   // @Transactional
     public Plat creerPlat(Plat plat) {
+        // ...
         return this.platRepo.save(plat);
     }
 }
